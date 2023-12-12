@@ -16,6 +16,7 @@ phases:
       - echo "Pre build phase ..."
       - apt-get update
       - apt-get install -y jq
+      - java -version
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
       - echo "Current path is >>>"
       - sh $pwd
