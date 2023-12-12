@@ -30,7 +30,7 @@ phases:
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 1 ;fi
+      - if [ "$(jq -r '.projectStatus.status' result.json)" = "ERROR" ]; then exit 1; fi
   post_build:
     commands:
       - echo "Post build phase ..."
